@@ -47,7 +47,7 @@
 }
 </style>
 <h1>api documentation for
-    <a href="https://www.contentful.com/developers/documentation/content-delivery-api/">contentful (v4.1.2)</a>
+    <a href="https://www.contentful.com/developers/documentation/content-delivery-api/">contentful (v4.2.1)</a>
 </h1>
 <h4>Client for Contentful's Content Delivery API</h4>
 <div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
@@ -57,19 +57,6 @@
         <li>
 
             <a class="apidocElementLiA" href="#apidoc.element.contentful.createClient">
-            function <span class="apidocSignatureSpan">contentful.</span>createClient
-            <span class="apidocSignatureSpan">(params)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.contentful.createClient">module contentful.createClient</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.contentful.createClient.createClient">
             function <span class="apidocSignatureSpan">contentful.</span>createClient
             <span class="apidocSignatureSpan">(params)</span>
             </a>
@@ -120,84 +107,21 @@
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-
-## Your first request
-
-The following code snippet is the most basic one you can use to get some content from Contentful with this SDK:
-
+})
+//....
+```
+OR
 ```js
-var contentful = require('contentful')
+// import everything from contentful
+import * as contentful from 'contentful'
 var client = contentful.<span class="apidocCodeKeywordSpan">createClient</span>({
   // This is the space ID. A space is like a project folder in Contentful terms
   space: 'developer_bookshelf',
   // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
   accessToken: '0b7f6x59a0'
 })
-// This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token
-.
-client.getEntry('5PeGS2SoZGSa4GuiQsigQu')
-...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.contentful.createClient" id="apidoc.module.contentful.createClient">module contentful.createClient</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.contentful.createClient.createClient" id="apidoc.element.contentful.createClient.createClient">
-        function <span class="apidocSignatureSpan">contentful.</span>createClient
-        <span class="apidocSignatureSpan">(params)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function createClient(params) {
-  if (!params.accessToken) {
-    throw new TypeError('Expected parameter accessToken');
-  }
-
-  if (!params.space) {
-    throw new TypeError('Expected parameter space');
-  }
-
-  // Use resolveLinks param if specified, otherwise default to true
-  var resolveLinks = !!('resolveLinks' in params ? params.resolveLinks : true);
-  var shouldLinksResolve = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__create_link_resolver__["a" /* default */])(resolveLinks
-);
-
-  params.defaultHostname = 'cdn.contentful.com';
-  params.headers = __WEBPACK_IMPORTED_MODULE_0_lodash_assign___default()(params.headers, {
-    'Content-Type': 'application/vnd.contentful.delivery.v1+json',
-    'X-Contentful-User-Agent': 'contentful.js/' + __WEBPACK_IMPORTED_MODULE_2__version___default.a
-  });
-
-  var http = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_contentful_sdk_core__["a" /* createHttpClient */])(__WEBPACK_IMPORTED_MODULE_1_axios___default
-.a, params);
-
-  return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__create_contentful_api__["a" /* default */])({
-    http: http,
-    shouldLinksResolve: shouldLinksResolve
-  });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-## Your first request
-
-The following code snippet is the most basic one you can use to get some content from Contentful with this SDK:
-
-```js
-var contentful = require('contentful')
-var client = contentful.<span class="apidocCodeKeywordSpan">createClient</span>({
-  // This is the space ID. A space is like a project folder in Contentful terms
-  space: 'developer_bookshelf',
-  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-  accessToken: '0b7f6x59a0'
-})
-// This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token
-.
-client.getEntry('5PeGS2SoZGSa4GuiQsigQu')
+// ....
+```
 ...</pre></li>
     </ul>
 
